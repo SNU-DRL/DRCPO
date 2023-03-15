@@ -1,6 +1,9 @@
-# DR.CPO
+# DR.CPO: Diversified and Realistic 3D Augmentation via Iterative Construction, Random Placement, and HPR Occlusion(AAAI-2023)
 
-This is the official PyTorch implementation of DR.CPO.
+This repository provides a Official PyTorch implementation of our AAAI 2023 paper ***DR.CPO: Diversified and Realistic 3D Augmentation via Iterative Construction, Random Placement, and HPR Occlusion.***
+
+* AAAI 2023 paper(will be made available)
+* arXiv version(will be made available)
 
 The all implementation for the baseline networks as well as the augmentation methods is based on [OpenPCDet](https://github.com/open-mmlab/OpenPCDet).
 
@@ -12,6 +15,20 @@ Our contributions are included in all three files below.
 
 
 -------------------
+
+# Abstract
+
+In autonomous driving, data augmentation is commonly used for improving 3D object detection. The most basic methods include insertion of copied objects and rotation and scaling of the entire training frame. Numerous variants have been developed as well. The existing methods, however, are con- siderably limited when compared to the variety of the real world possibilities. In this work, we develop a diversified and realistic augmentation method that can flexibly construct a whole-body object, freely locate and rotate the object, and apply self-occlusion and external-occlusion accordingly. To improve the diversity of the whole-body object construction, we develop an iterative method that stochastically combines multiple objects observed from the real world into a single object. Unlike the existing augmentation methods, the con- structed objects can be randomly located and rotated in the training frame because proper occlusions can be reflected to the whole-body objects in the final step. Finally, proper self- occlusion at each local object level and external-occlusion at the global frame level are applied using the Hidden Point Removal (HPR) algorithm that is computationally efficient. HPR is also used for adaptively controlling the point density of each object according to the object’s distance from the LiDAR. Experiment results show that the proposed DR.CPO algorithm is data-efficient and model-agnostic without incurring any computational overhead. DR.CPO can improve mAP performance by 2.08% when compared to the best 3D detection result known for KITTI dataset.
+
+# Our contributions:
+
+* We introduce DR.CPO, a data augmentation algorithm specifically developed for 3D point clouds, to provide di-
+  versified and realistic views at the level of individual objects and at the level of entire frame.
+* We develop an iterative method for constructing realistic whole-body objects where only real observations are
+  used.
+* We present a computationally light occlusion method based on HPR. Our method can implement self-occlusion, external-occlusion, and density adjustment.
+* We show that DR.CPO is data efficient, model-agnostic, and computationally efficient.
+* We achieve state-of-the-art performance on the KITTI dataset. DR.CPO improves mAP performance by 2.08%
 
 # Installation
 
@@ -119,3 +136,21 @@ sh scripts/dist_test.sh ${NUM_GPUS} \
     --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE}
 ```
 
+
+
+# Citation
+
+```
+@inproceedings{currently not available
+}
+```
+
+
+
+# Thanks to 
+
+We would like to express our gratitude to the creators and contributors of OpenPCDet, an open-source framework for 3D point cloud detection. 
+
+# Contact
+
+Please contact the author if you have any questions about our repository/paper: Jungwook Shin(jungwook.shin@snu.ac.kr)
